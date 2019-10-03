@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h3>새 질문 등록</h3>
+
+<form action="{% url 'eithers:new' %}" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="question title">질문</label>
+    <input type="text" class="form-control" name="title">
+  </div>
+  <div class="form-group">
+    <label for="issue_a">issue_a</label>
+    <input type="text" class="form-control" name="issue_a">
+    <input type="file" name="image_a" accept="image/*">
+  </div>
+  <div class="form-group">
+    <label for="issue_b">issue_b</label>
+    <input type="text" class="form-control" name="issue_b">
+    <input type="file" name="image_b" accept="image/*">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}
